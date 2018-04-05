@@ -52,6 +52,12 @@
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
 
+		<!--进行实时监控-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
 		<!-- 热部署，防止频繁修改重启项目 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

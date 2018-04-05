@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 public class MyBean implements CommandLineRunner,Ordered {
     @Override
     public void run(String... args) throws Exception {
-        System.out.println("启动啦。。。。。");
+        System.out.println("启动啦1。。。。。");
     }
 
     @Override
