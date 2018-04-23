@@ -27,21 +27,21 @@ public class InteceptorConfig extends WebMvcConfigurationSupport {
         registry.addInterceptor(new OtherInterceptor()).addPathPatterns("/hello").order(2);//可以配置多个拦截器，order从小到大依次执行
     }
 
-    @Bean
+    @Bean//解决中文乱码的StringHttpMessageConverter
     public HttpMessageConverter<String> responseBodyConverter() {
         StringHttpMessageConverter converter = new StringHttpMessageConverter(Charset.forName("UTF-8"));
         return converter;
     }
 
-    @Override
+    @Override//将上面的StringHttpMessageConverter加入到boot默认的HttpMessageConverter集合中
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
         super.configureMessageConverters(converters);
         converters.add(responseBodyConverter());
     }
 
-    @Override
-    public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
-        configurer.favorPathExtension(false);
-    }
+//    @Override这个似乎没用
+//    public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
+//        configurer.favorPathExtension(false);
+//    }
 
 }

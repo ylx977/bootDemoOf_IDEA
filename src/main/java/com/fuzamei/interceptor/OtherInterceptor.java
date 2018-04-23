@@ -13,6 +13,7 @@ public class OtherInterceptor extends HandlerInterceptorAdapter {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         System.out.println("我是一个拦截器OtherInterceptor的前置操作");
+        System.out.println(request.getRequestURL());
         return true;
     }
 
