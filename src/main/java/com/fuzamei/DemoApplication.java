@@ -26,6 +26,7 @@ public class DemoApplication {
 //		properties.load(new FileInputStream(new File(path)));
 //		app.setDefaultProperties(properties);
 		app.run(args);
+
 	}
 }
 
