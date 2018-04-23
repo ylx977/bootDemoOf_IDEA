@@ -27,7 +27,7 @@ public class DemoApplication {
 //		app.setDefaultProperties(properties);
 		app.run(args);
 
-		//====================this is MASTER
+		//====================this is MASTER MASTER
 
 	}
 }
