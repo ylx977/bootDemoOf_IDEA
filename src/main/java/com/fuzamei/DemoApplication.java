@@ -12,7 +12,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
-@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class, HibernateJpaAutoConfiguration.class})// same as @Configuration @EnableAutoConfiguration @ComponentScan
+//@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class, HibernateJpaAutoConfiguration.class})// same as @Configuration @EnableAutoConfiguration @ComponentScan
+@SpringBootApplication// same as @Configuration @EnableAutoConfiguration @ComponentScan
 public class DemoApplication {
 
 	public static void main(String[] args) throws IOException {

@@ -13,10 +13,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
-import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
-import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.*;
 
 import java.nio.charset.Charset;
 import java.util.ArrayList;
@@ -89,7 +86,15 @@ public class InteceptorConfig extends WebMvcConfigurationSupport {
         converters.add(fastConverter);
     }
 
-//    @Override这个似乎没用
+    //springboot 2.0之后默认是不开放static静态资源访问的，因此要加入这个配置
+    //addResourceHandler是浏览器中的访问路径，比如这样的访问方式就是http://localhost:8093/demo/index.html
+    //addResourceLocations是对实际的classpath下的路径的文件访问, 这里classpath:/static/包含对static目录下所有文件以及文件夹下的文件的访问
+    //http://localhost:8093/demo/static/img/bg.fd1677a.jpg这样也是能访问通过的
+    @Override
+    protected void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/**").addResourceLocations("classpath:/static/");
+    }
+    //    @Override这个似乎没用
 //    public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
 //        configurer.favorPathExtension(false);
 //    }

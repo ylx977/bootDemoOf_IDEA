@@ -4,6 +4,7 @@ import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author ylx
@@ -17,5 +18,6 @@ public class JsonBean {
     @JSONField(format = "yyyy-mm-dd")
     private Date createTime;
     private String address;
+    private List<?> list;
 
 }

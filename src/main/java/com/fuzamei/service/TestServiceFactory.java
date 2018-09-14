@@ -27,6 +27,9 @@ public class TestServiceFactory implements ApplicationContextAware {
     @PostConstruct
     public void injectRepository(){
         System.out.println("开始启动的时候做的事情");
+        /**
+         * 这里的String表示Service上的value值，如果没有写就是类名首字母小写
+         */
         Map<String, TestService> beansOfType = applicationContext.getBeansOfType(TestService.class);
         beansOfType.forEach((x,y)-> System.err.println("key："+x+"---->"+y));
     }

@@ -10,7 +10,7 @@ import java.util.Date;
  * @author ylx
  * Created by fuzamei on 2018/8/30.
  */
-@Service
+@Service(value = "B")
 public class TestServiceImplB implements TestService {
     @Override
     public JsonBean getJsonBean() {
@@ -23,11 +23,11 @@ public class TestServiceImplB implements TestService {
 
     @Override
     public void updateJsonBean() {
-        System.out.println("update");
+        System.out.println("updateB");
     }
 
     @Override
     public void deleteJsonBean() {
-        System.out.println("delete");
+        System.out.println("deleteB");
     }
 }
