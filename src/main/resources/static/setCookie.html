@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>生成器函数</title>
+</head>
+
+<body>
+    <button onclick="hehe()">呵呵</button>
+    <!-- <script src="http://lib.sinaapp.com/js/jquery/1.3.1/jquery.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        /* function* show() {
+                                                                                                        // let gen = show()
+                                                                                                        // gen.next(5)
+                                                                                                        // gen.next(12)
+                                                                                                        // 走走停停 generator 
+                                                                                                        // 需要请求数据  暂停 yield *
+                                                                                                        // yield 既可以传参，又可以返回
+                                                                                                        /* function show(a, b, ...args) {
+                                                                                                            console.log(a)
+                                                                                                            console.log(b)
+                                                                                                            console.log(...args)
+                                                                                                        }
+                                                                                                        show(1, 2, 3, 4, 5, 6) */
+        function hehe() {
+            $.ajax({
+                url: 'http://192.168.20.92:8093/demo/cookie/setCookie',
+//                url: 'http://172.16.100.31:8093/demo/cookie/setCookie',
+                dataType: 'json',
+                /*   headers: {
+                      'fron': 'http://192.168.20.92'
+                  }, */
+                type: "GET",
+                xhrFields: {
+                    withCredentials: true
+                },
+                crossDomain: true,
+                success: function(res) {
+                    console.log(res)
+            }}
+            )
+        }
+    </script>
+</body>
+
+</html>

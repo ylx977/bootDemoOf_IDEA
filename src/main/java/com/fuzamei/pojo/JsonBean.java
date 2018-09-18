@@ -19,5 +19,6 @@ public class JsonBean {
     private Date createTime;
     private String address;
     private List<?> list;
+    private Object data;
 
 }

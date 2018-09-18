@@ -4,6 +4,7 @@ package com.fuzamei.config.interceptor;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
+import com.fuzamei.interceptor.CookieInterceptor;
 import com.fuzamei.interceptor.HandlerInterceptor;
 import com.fuzamei.interceptor.OtherInterceptor;
 import com.fuzamei.interceptor.TokenInterceptor;
@@ -28,11 +29,15 @@ public class InteceptorConfig extends WebMvcConfigurationSupport {
     @Autowired
     private HandlerInterceptor handlerInterceptor;
 
+    @Autowired
+    private CookieInterceptor cookieInterceptor;
+
     @Override
     protected void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new TokenInterceptor()).addPathPatterns("/hello").excludePathPatterns("test").order(1);
         registry.addInterceptor(new OtherInterceptor()).addPathPatterns("/hello").order(2);//可以配置多个拦截器，order从小到大依次执行
         registry.addInterceptor(handlerInterceptor).addPathPatterns("/**").excludePathPatterns("test").order(3);
+        registry.addInterceptor(cookieInterceptor).addPathPatterns("/cookie/setCookie").order(4);
     }
 
     @Bean//解决中文乱码的StringHttpMessageConverter
